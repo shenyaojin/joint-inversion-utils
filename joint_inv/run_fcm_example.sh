@@ -1,5 +1,5 @@
 #!/bin/bash
-# FCM clustering, linear initial model.
+# FCM clustering, linear initial model, single parameter.
 
 vel_reg=30 # Regularization parameter (velocity)
 res_reg=30 # Regularization parameter (resistivity)
