@@ -33,10 +33,14 @@ Includes the workflow of individual inversion, there are iteration versions of i
 
 Includes the **data condition** parameter selection, ** coupling condition** selection: 
 
-```
->> tree
+```shell
 .
-├── change_data_cond.sh
-└── run_fcm.sh
+├── change_coupling.sh
+├── change_data_condition.sh
+├── run_cross_grad_example.sh
+└── run_fcm_example.sh
 ```
+* **Dependency**: "jointinv_swgravdc"
+* **change_coupling**: the final step of joint inversion. Should use "L-curve" to decide a best coupling parameter.
+* **change_data_condition** 
 
