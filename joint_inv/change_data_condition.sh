@@ -5,7 +5,7 @@ vel_reg=20
 dc_reg=20
 seis_lambda=(0.1 0.2 0.5 1.0 2.0 5.0 10.0 20.0 30.0)
 res_lambda=(0.1 0.2 0.5 1.0 2.0 5.0 10.0 20.0 30.0)
-
+mkdir -p log
 for vel_iter in ${seis_lambda[@]}
 do
     for dc_iter in ${res_lambda[@]}

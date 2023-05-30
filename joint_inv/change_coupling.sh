@@ -4,7 +4,7 @@
 vel_reg=20
 dc_reg=20
 coupling=(100 500 1000 5000 7500 10000 20000 30000 40000 50000)
-
+mkdir -p log
 for coup_iter in ${coupling[@]}
 do 
         workfolder=coup-$coup_iter

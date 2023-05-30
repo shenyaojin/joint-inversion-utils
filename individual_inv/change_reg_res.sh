@@ -4,6 +4,7 @@
 # dependency: "jointinv_swgravdc". It's binary file yet.
 
 par_reg=(5 10 20 50 100 500 1000)
+mkdir -p log
 
 for res_iter in ${par_reg[@]}
 do
@@ -29,5 +30,6 @@ $res_iter
 1000
 eof
 cd ..
+cp $workfolder/misfit.out ./log/$workfolder.out #copy log file to log
 done
 
