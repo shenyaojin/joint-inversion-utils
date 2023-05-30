@@ -39,4 +39,3 @@ Includes the **data condition** parameter selection, ** coupling condition** sel
 ├── change_data_cond.sh
 └── run_fcm.sh
 ```
-
