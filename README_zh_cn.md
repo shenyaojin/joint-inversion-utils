@@ -28,6 +28,11 @@
 ```
 
 **依赖**: "jointinv_swgravdc"。这是未被开源的二进制文件。
+运行方式：在相同目录下放入**观测数据**和**初始模型**后即可运行，其他代码运行方式类似。
+
+```shell
+chmod -R 755 run_res.sh && ./run_res.sh
+```
 
 ## 3. 联合反演
 
@@ -35,7 +40,17 @@
 
 ```shell
 >> tree
-.
-├── change_data_cond.sh
-└── run_fcm.sh
+joint_inv
+├── change_coupling.sh
+├── change_data_condition.sh
+├── run_cross_grad_example.sh
+└── run_fcm_example.sh
 ```
+**依赖**: "jointinv_swgravdc"。这是未被开源的二进制文件。
+
+* change_coupling：改变耦合参数的联合反演；通常用于参数选择的最后一步。在开始部分加入“change_data_condition”和“run_res & run_vel”脚本中分析得到的四组参数（可以参考example_analysis文件夹）。
+* change_data_condition: 改变数据项参数的联合反演；通常用于参数选择的第二步。在开始部分加入“run_res & run_vel”脚本中分析得到的两组参数（可以参考example_analysis文件夹）。
+* run_cross_grad_example：使用交叉梯度的联合反演算法。
+
+注：以上代码在相同目录下放入**观测数据**和**初始模型**后即可运行。如果需要先验数据请自行分析。或者参考我之前的分析。
+
