@@ -94,3 +94,33 @@ example_analysis
 * change_coupling_3rd：这个文件夹使用L-曲线法得到的耦合项系数。（第三步）
 
 具体可以参考我的[部分文章](./example_analysis/example.pdf)。
+
+## 6. utils（工具）
+
+```shell
+utils
+├── fcm_clustering
+│   └── fcm_clustering_implement.py
+├── nc_file_generator
+│   ├── ncgen_seis.ipynb
+│   └── nc_resistivity_model_gen.ipynb
+└── plot_utils
+    ├── l_curve_example
+    │   ├── 100.out
+    │   ├── ...
+    │   ├── l_curve_plotter.py
+    │   └── testit.py
+    ├── l_curve_plotter.py
+    └── rms_curve_example
+        ├── 1.0-0.1-rms.out
+        ├── ...
+        └── res_rms.ipynb
+
+6 directories, 29 files
+```
+
+* fcm_clustering: 这是一个fcm的算法。我已经打包成了函数；注意X是(:,2)形状的ndarray；一列列是数据的类型。
+* ncgen_seis：用来生成初始模型的脚本，我写了对数形式的模型。但是仍存在未知bug，用panoply打开发现它生成的模型和正常模型一模一样，但是输入程序仍会报错。
+* nc_resistivity_model_gen：生成初始模型的脚本，电阻率形式。
+* plot_utils: 画图工具。l_curve_plotter是打包成函数的形式，testit.py是测试脚本，可以参考；rms_curve比较难打包，我给出了一个notebook文件用于参考。
+
