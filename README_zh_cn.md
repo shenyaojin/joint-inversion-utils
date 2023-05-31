@@ -51,6 +51,46 @@ joint_inv
 * change_coupling：改变耦合参数的联合反演；通常用于参数选择的最后一步。在开始部分加入“change_data_condition”和“run_res & run_vel”脚本中分析得到的四组参数（可以参考example_analysis文件夹）。
 * change_data_condition: 改变数据项参数的联合反演；通常用于参数选择的第二步。在开始部分加入“run_res & run_vel”脚本中分析得到的两组参数（可以参考example_analysis文件夹）。
 * run_cross_grad_example：使用交叉梯度的联合反演算法。
+* run_fcm_example：一个使用默认参数的fcm反演。
 
-注：以上代码在相同目录下放入**观测数据**和**初始模型**后即可运行。如果需要先验数据请自行分析。或者参考我之前的分析。
+注：以上代码在相同目录下放入**观测数据**和**初始模型**后即可运行。如果需要先验数据请自行分析。或者参考我之前的分析（该部分因为涉及原始数据，因此无法公开）。
 
+## 4. example data（示例数据）
+
+```shell
+example_data
+├── start_res.nc
+└── start_vel.nc
+```
+
+此版本包含的示例数据包含使用程序生成的初始模型。该模型参数可以用panoply或是用netcdf库打开（可以参考utils/nc_file_generator里的notebook文件）。还有ResRawData.txt或是RawData.txt文件请参见1。
+
+## 5. example analysis (示例分析)
+
+```shell
+example_analysis
+├── change_coupling_3rd
+│   ├── 10000.out
+│   ...
+│   └── coupling_parameter_selection.ipynb
+├── change_data_cond_2nd
+│   ├── 0.1-1.0-misfit.out
+│   ...
+└── change_reg_1st
+    ├── resistivity
+    │   ├── log
+    │   │   ├── 1000.out
+    │   │   └── ...
+    │   └── res_l_curve.ipynb
+    └── slowness
+        ├── log
+        │   ├── 1000.out
+        │   └── ...
+        └── vel_l_curve.ipynb
+```
+
+* change_reg_1st：这个文件夹使用L-曲线法分析合适的正则化参数。（第一步）
+* change_data_cond_2nd: 这个文件夹使用RMS下降趋势分析合适的数据项系数。（第二步）
+* change_coupling_3rd：这个文件夹使用L-曲线法得到的耦合项系数。（第三步）
+
+具体可以参考我的[部分文章](./example_analysis/example.pdf)。
